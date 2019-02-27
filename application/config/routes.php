@@ -52,3 +52,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// ClientController
+$route['cliente'] = "ClientController/index";
+$route['cliente/criar'] = "ClientController/createClient";
+$route['cliente/atualizar/(:num)'] = "ClientController/updateClient/$1";
+$route['cliente/deletar/(:num)'] = "ClientController/deleteClient/$1";
