@@ -11,6 +11,16 @@ you creatively focus on your project by minimizing the amount of code needed
 for a given task.
 
 *******************
+Create database
+*******************
+
+To create the schema use the create command:
+php vendor/bin/doctrine orm:schema-tool:create
+
+To drop the schema use the drop command:
+php vendor/bin/doctrine orm:schema-tool:drop
+
+*******************
 Release Information
 *******************
 

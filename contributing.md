@@ -11,14 +11,6 @@ Issues are a quick way to point out a bug. If you find a bug or documentation er
 
 Reporting issues is helpful but an even better approach is to send a Pull Request, which is done by "Forking" the main repository and committing to your own copy. This will require you to use the version control system called Git.
 
-## Config doctrine
-
-To create the schema use the create command:
-php vendor/bin/doctrine orm:schema-tool:create
-
-To drop the schema use the drop command:
-php vendor/bin/doctrine orm:schema-tool:drop
-
 ## Guidelines
 
 Before we look into how, here are the guidelines. If your Pull Requests fail
