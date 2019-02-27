@@ -58,3 +58,9 @@ $route['cliente'] = "ClientController/index";
 $route['cliente/criar'] = "ClientController/createClient";
 $route['cliente/atualizar/(:num)'] = "ClientController/updateClient/$1";
 $route['cliente/deletar/(:num)'] = "ClientController/deleteClient/$1";
+
+// EmployeeController
+$route['funcionario'] = "EmployeeController/index";
+$route['funcionario/criar'] = "EmployeeController/createEmployee";
+$route['funcionario/atualizar/(:num)'] = "EmployeeController/updateEmployee/$1";
+$route['funcionario/deletar/(:num)'] = "EmployeeController/deleteEmployee/$1";
