@@ -7,6 +7,6 @@ class EmployeeDao extends BaseDao
 {
     public function __construct($em)
     {
-        parent::__construct($em, 'id', 'Employee');
+        parent::__construct($em, 'cpf', 'Employee');
     }
 }
