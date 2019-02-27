@@ -49,9 +49,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'ProjectController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// ProjectController
+$route['projeto'] = "ProjectController/index";
+$route['projeto/criar'] = "ProjectController/createProject";
+$route['projeto/(:num)'] = "ProjectController/getProject/$1";
+$route['projeto/atualizar/(:num)'] = "ProjectController/updateProject/$1";
+$route['projeto/deletar/(:num)'] = "ProjectController/deleteProject/$1";
 
 // ClientController
 $route['cliente'] = "ClientController/index";
