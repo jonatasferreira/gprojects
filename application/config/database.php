@@ -76,8 +76,8 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> 'mysql:host=localhost;dbname=dbgprojects',
 	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => 'cticnead',
+	'username' => '',
+	'password' => '',
 	'database' => 'dbgprojects',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
