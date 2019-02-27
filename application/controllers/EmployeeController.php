@@ -46,10 +46,8 @@ class EmployeeController extends CI_Controller
 
     public function updateEmployee($cpf)
     {
-        $employee = new Employee();
-        $employee->setCpf($cpf);
         $employeeDao = new EmployeeDao($this->em);
-        $data['employee'] = $employeeDao->read($employee);
+        $data['employee'] = $employeeDao->read($cpf);
 
 
         $this->form_validation->set_rules('name','Nome','required',array('required' => 'Você deve preencher o campo %s.'));
@@ -67,10 +65,8 @@ class EmployeeController extends CI_Controller
 
     public function deleteEmployee($cpf)
     {
-        $employee = new Employee();
-        $employee->setCpf($cpf);
         $employeeDao = new EmployeeDao($this->em);
-        $employee = $employeeDao->read($employee);
+        $employee = $employeeDao->read($cpf);
         $employeeDao->delete($employee);
         redirect('funcionario');
     }

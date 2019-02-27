@@ -32,12 +32,9 @@ abstract class BaseDao
      * @param  object  $obj
      *
      */ 
-    public function read($obj)
+    public function read($primaryKeyValue)
     {
-        $key = $obj->{'get'.$this->primaryKey}();
-        $obj = NULL;
-
-        $ObjReturn = $this->em->find($this->tableName, $key);
+        $ObjReturn = $this->em->find($this->tableName, $primaryKeyValue);
 		if ($ObjReturn === null) {
 			return null;
 		}

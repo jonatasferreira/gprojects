@@ -46,10 +46,8 @@ class ClientController extends CI_Controller
 
     public function updateClient($cpf)
     {
-        $client = new Client();
-        $client->setCpf($cpf);
         $clientDao = new ClientDao($this->em);
-        $data['client'] = $clientDao->read($client);
+        $data['client'] = $clientDao->read($cpf);
 
 
         $this->form_validation->set_rules('name','Nome','required',array('required' => 'Você deve preencher o campo %s.'));
@@ -67,10 +65,8 @@ class ClientController extends CI_Controller
 
     public function deleteClient($cpf)
     {
-        $client = new Client();
-        $client->setCpf($cpf);
         $clientDao = new ClientDao($this->em);
-        $client = $clientDao->read($client);
+        $client = $clientDao->read($cpf);
         $clientDao->delete($client);
         redirect('cliente');
     }
