@@ -1,8 +1,19 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Welcome extends CI_Controller
+{
+    private $em;
 
+    /**
+	 * Construtor da classe.
+	 * 
+	 */
+	public function __construct()
+	{
+        parent::__construct();
+        $this->em = $this->doctrine->em;
+	}
 	/**
 	 * Index Page for this controller.
 	 *

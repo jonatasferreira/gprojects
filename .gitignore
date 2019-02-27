@@ -1,0 +1,8 @@
+/vendor/
+/uploads/*
+!/uploads/index.html
+/application/session/*
+!/application/session/index.html
+/application/logs/*
+!/application/logs/index.html
+/application/libraries/mpdf60/*
