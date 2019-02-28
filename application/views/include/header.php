@@ -7,9 +7,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Project Manager System">
     <meta name="keywords" content="">
-    <meta name="robots" content="">
+    <meta name="robots" content="noindex, nofollow">
     <meta name="author" content="Jônatas Ferreira">
     <link rel="icon" href="">
     <!-- Bootstrap core CSS -->
