@@ -11,6 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 				<th>Nome</th>
 				<th>Nome Cliente</th>
 				<th>Nome Gerente</th>
+				<th>Tarefas</th>
 				<th>Editar</th>
 				<th>Deletar</th>
 			</tr>
@@ -20,6 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 					<td><?php echo $project['name'];?></td>
 					<td><?php echo $project['nameClient'];?></td>
 					<td><?php echo $project['nameManager'];?></td>
+					<td><a href="projeto/<?php echo $project['id'];?>/tarefa">ver</a></td>
 					<td><a href="projeto/atualizar/<?php echo $project['id'];?>">editar</a></td>
 					<td><a href="projeto/deletar/<?php echo $project['id'];?>">deletar</a></td>
 				</tr>

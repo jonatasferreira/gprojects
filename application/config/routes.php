@@ -56,7 +56,6 @@ $route['translate_uri_dashes'] = FALSE;
 // ProjectController
 $route['projeto'] = "ProjectController/index";
 $route['projeto/criar'] = "ProjectController/createProject";
-$route['projeto/(:num)'] = "ProjectController/getProject/$1";
 $route['projeto/atualizar/(:num)'] = "ProjectController/updateProject/$1";
 $route['projeto/deletar/(:num)'] = "ProjectController/deleteProject/$1";
 
@@ -71,3 +70,9 @@ $route['funcionario'] = "EmployeeController/index";
 $route['funcionario/criar'] = "EmployeeController/createEmployee";
 $route['funcionario/atualizar/(:num)'] = "EmployeeController/updateEmployee/$1";
 $route['funcionario/deletar/(:num)'] = "EmployeeController/deleteEmployee/$1";
+
+// TaskController
+$route['projeto/(:num)/tarefa'] = "TaskController/index/$1";
+$route['projeto/(:num)/tarefa/criar'] = "TaskController/createTask/$1";
+$route['projeto/(:num)/tarefa/atualizar/(:num)'] = "TaskController/updateTask/$1/$2";
+$route['projeto/(:num)/tarefa/deletar/(:num)'] = "TaskController/deleteTask/$1/$2";
