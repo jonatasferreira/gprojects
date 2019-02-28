@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             'name'          => 'name',
             'id'            => 'name',
             'value'         => set_value('name', (isset($client)) ? $client->getName() : '' ),
-            'placeholder'   => 'Digite o cpf',
+            'placeholder'   => 'Digite o nome',
             'maxlength'     => '255'
         );
         echo form_error('name');
