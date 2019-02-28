@@ -14,6 +14,7 @@ class ProjectController extends CI_Controller
 		require_once APPPATH . "/models/dao/ProjectDao.php";
 		require_once APPPATH . "/models/dao/ClientDao.php";
 		require_once APPPATH . "/models/dao/EmployeeDao.php";
+		require_once APPPATH . "/models/dao/TaskDao.php";
         $this->em = $this->doctrine->em;
 	}
  
@@ -135,9 +136,21 @@ class ProjectController extends CI_Controller
 
     public function deleteProject($id)
     {
-        $projectDao = new ProjectDao($this->em);
-        $project = $projectDao->read($id);
-        $projectDao->delete($project);
-        redirect('projeto');
+        $taskDao = new TaskDao($this->em);
+        $value = $id;
+        $key = 'projectId';
+        $taskList = $taskDao->readAll($value, $key);
+
+        if (count($taskList) == 0) {
+            $projectDao = new ProjectDao($this->em);
+            $project = $projectDao->read($id);
+            $projectDao->delete($project);
+            redirect('projeto');
+        } else {
+            $data['msg'] = 'Não permitido, este projeto possui tarefas. Delete as tarefas';
+            $this->load->view('include/header');
+            $this->load->view('errors/error_app', $data);
+            $this->load->view('include/footer');
+        }
     }
 }

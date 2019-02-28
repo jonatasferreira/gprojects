@@ -13,6 +13,8 @@ class EmployeeController extends CI_Controller
 	{
         parent::__construct();
         require_once APPPATH . "/models/dao/EmployeeDao.php";
+        require_once APPPATH . "/models/dao/ProjectDao.php";
+        require_once APPPATH . "/models/dao/TaskDao.php";
         $this->em = $this->doctrine->em;
 	}
  
@@ -65,9 +67,28 @@ class EmployeeController extends CI_Controller
 
     public function deleteEmployee($cpf)
     {
-        $employeeDao = new EmployeeDao($this->em);
-        $employee = $employeeDao->read($cpf);
-        $employeeDao->delete($employee);
-        redirect('funcionario');
+        $projectDao = new ProjectDao($this->em);
+        $value = $cpf;
+        $key = 'employeeId';
+        $projectList = $projectDao->readAll($value, $key);
+
+        $taskDao = new TaskDao($this->em);
+        $value = $cpf;
+        $key = 'employeeId';
+        $taskList = $taskDao->readAll($value, $key);
+
+        if (count($projectList) == 0 && count($taskList) == 0) {
+            $employeeDao = new EmployeeDao($this->em);
+            $employee = $employeeDao->read($cpf);
+            $employeeDao->delete($employee);
+            redirect('funcionario');
+        } else {
+            $data['msg'] = 'Não permitido, funcionário possui vinculo com um projeto e/ou tarefa.';
+            $this->load->view('include/header');
+            $this->load->view('errors/error_app', $data);
+            $this->load->view('include/footer');
+        }
+
+
     }
 }

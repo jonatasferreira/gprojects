@@ -13,6 +13,7 @@ class ClientController extends CI_Controller
 	{
         parent::__construct();
         require_once APPPATH . "/models/dao/ClientDao.php";
+        require_once APPPATH . "/models/dao/ProjectDao.php";
         $this->em = $this->doctrine->em;
 	}
  
@@ -65,9 +66,21 @@ class ClientController extends CI_Controller
 
     public function deleteClient($cpf)
     {
-        $clientDao = new ClientDao($this->em);
-        $client = $clientDao->read($cpf);
-        $clientDao->delete($client);
-        redirect('cliente');
+        $projectDao = new ProjectDao($this->em);
+        $value = $cpf;
+        $key = 'clientId';
+        $projectList = $projectDao->readAll($value, $key);
+
+        if (count($projectList) == 0) {
+            $clientDao = new ClientDao($this->em);
+            $client = $clientDao->read($cpf);
+            $clientDao->delete($client);
+            redirect('cliente');
+        } else {
+            $data['msg'] = 'Não permitido, cliente possui vinculo com um projeto.';
+            $this->load->view('include/header');
+            $this->load->view('errors/error_app', $data);
+            $this->load->view('include/footer');
+        }
     }
 }
