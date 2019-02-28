@@ -106,7 +106,7 @@ class ProjectController extends CI_Controller
             $data['project']->setClientId($this->input->post('client'));
             $data['project']->setEmployeeId($this->input->post('manager'));
             $projectDao = new ProjectDao($this->em);
-            $projectDao->create($data['project']);
+            $projectDao->update($data['project']);
             redirect('projeto');
         }
 
